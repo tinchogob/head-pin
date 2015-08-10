@@ -1,0 +1,70 @@
+<html>
+	<body>
+		<h2>Head Pin - a go pet project by <a href="https://twitter.com/Zambayon">@zambayon</a></h2>
+		<form action="/pins/me" method="POST">
+			<table style="width:0%">
+				<tr>
+					<td>Latitude:</td>
+					<td><input id="lat" type="text" name="lat"><br></td>
+				</tr>
+				<tr>
+					<td>Longitude:</td>
+					<td><input id="lon" type="text" name="lon"><br></td>
+				</tr>
+				<tr>
+					<td># workers:</td>
+					<td><input id="workers" type="text" name="workers" value="10"><br></td>
+					<td># of parallel goroutines to fetch the images</td>
+				</tr>
+				<tr>
+					<td>delay:</td>
+					<td><input id="delay" type="text" name="delay" value="5"><br></td>
+					<td>Gif frames delay</td>
+				<tr>
+				</tr>
+					<td>loops:</td>
+					<td><input id="loops" type="text" name="loops" value="1000"><br></td>
+					<td># of loops for the gif</td>
+				</tr>
+				</tr>
+					<td>height:</td>
+					<td><input id="alto" type="text" name="alto" value="600"><br></td>
+				</tr>
+				</tr>
+					<td>width:</td>
+					<td><input id="ancho" type="text" name="ancho" value="800"><br></td>
+				</tr>
+				</tr>
+					<td>zoom in/out:</td>
+					<td><input id="zoomType" type="text" name="zoomType" value="out"><br></td>
+					<td>space-to ground/ground-to-space</td>
+				</tr>
+				<tr>
+					<td><button type="button" onclick="getLocation()">Obtener ubicacion</button></td>
+					<td><input id="goPin" type="submit" value="Submit"></td>
+				<tr>
+			</table>
+		</form>
+
+		<p><a href="https://github.com/tinchogob/head-pin">src</a></p>
+		<script>
+			var goPin = document.getElementById("goPin");
+			var lat = document.getElementById("lat");
+			var lon = document.getElementById("lon");
+			
+			function getLocation() {
+				goPin.disabled = true;
+				if (navigator.geolocation) {
+					navigator.geolocation.getCurrentPosition(showPosition);
+				} else {
+					x.innerHTML = "Geolocation is not supported by this browser.";
+				}
+				goPin.disabled = false;
+			}
+				function showPosition(position) {
+				lat.value = position.coords.latitude;
+				lon.value = position.coords.longitude;
+			}
+		</script>
+	</body>
+</html>
