@@ -58,12 +58,14 @@
 					navigator.geolocation.getCurrentPosition(showPosition);
 				} else {
 					x.innerHTML = "Geolocation is not supported by this browser.";
+					goPin.disabled = false;
 				}
-				goPin.disabled = false;
+				
 			}
 				function showPosition(position) {
 				lat.value = position.coords.latitude;
 				lon.value = position.coords.longitude;
+				goPin.disabled = false;
 			}
 		</script>
 	</body>

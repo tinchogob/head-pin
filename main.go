@@ -51,7 +51,7 @@ func pins_me(w http.ResponseWriter, r *http.Request) {
 
 		pin := PIN{lat, lon, workers, delay, loops, alto, ancho, zoomType}
 		// pin := PIN{"-34.5667166","-58.4574169", 10, 100, 20, "500", "800"}
-
+		w.Header().Set("Content-Type", "image/gif")
 		Headpin(pin, w, c);
 	}
 
